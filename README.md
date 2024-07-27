@@ -10,22 +10,23 @@ Parses Telegram chat export for shared Wordle scores.
 
 ## Installation:
 
+* Install `pipx` (https://pipx.pypa.io/stable/installation/)
+* Install Poetry (https://python-poetry.org/docs/#installing-with-pipx)
+
 ```
-pip install beautifulsoup4
+pipx install poetry
+```
+
+* Install dependencies:
+
+```
+poetry install
 ```
 
 ## Usage
 
-Extract scores from all `./export/*` files and write them into an Excel sheet
+Extract scores from all `./export/*` files
 
 ```
-bash extract.sh
-```
-
-## Testing
-
-Run script directly on a file. This will list the found Wordle scores.
-
-```
-python main.py ./export/messages.html
+poetry run python main.py export | sort -V &> ./output/scores.csv
 ```
